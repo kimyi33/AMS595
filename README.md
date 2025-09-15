@@ -1,1 +1,1 @@
-# Project 1: Estimating \pi with Monte Carlo methods
+# Project 1: Estimating $\pi$ with Monte Carlo methods
