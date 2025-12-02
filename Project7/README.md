@@ -8,14 +8,10 @@ This repository contains my C++ solutions for Project 7. This project implements
 * Pascal's triangle using loops
 * Organizing code across multiple `.cpp` and `.h` files
 
----
-
 ## Files
 - `main.cpp` - runs all questions and prints results
 - `functions.cpp` - implementations of all functions
 - `functions.h` - declarations of all functions
-
----
 
 ## Usage
 1. Complie : use the following command inside the project directory:
