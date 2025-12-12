@@ -21,15 +21,15 @@ All experiments focus on the `Chord` botnet topology.
 
 ```
 .
-├── botdet/ \# Core library (models, datasets, loaders)
-├── train_botnet.py \# Main training and evaluation script
-├── run_botnet_ones_sm.sh \# Ones features + symmetric normalization
-├──run_botnet_ones_rw.sh \# Ones features + random-walk normalization
-├──run_botnet_int_sm.sh \# Integer-index features + symmetric normalization
-├── run_botnet_int_rw.sh \# Integer-index features + random-walk normalization
-├── setup.py \# Package setup file
-├──AMS595_Project_Final.ipynb \# Jupyter notebook (experiment walkthrough)
-├── saved_models/ \# Training logs and saved checkpoints
-└── README.md\# This file
+├── botdet/                 # Core library (models, datasets, loaders)
+├── train_botnet.py         # Main training and evaluation script
+├── run_botnet_ones_sm.sh   # Ones features + symmetric normalization
+├──run_botnet_ones_rw.sh    # Ones features + random-walk normalization
+├──run_botnet_int_sm.sh     # Integer-index features + symmetric normalization
+├── run_botnet_int_rw.sh    # Integer-index features + random-walk normalization
+├── setup.py                # Package setup file
+├──AMS595_Project_Final.ipynb  # Jupyter notebook (experiment walkthrough)
+├── saved_models/           # Training logs and saved checkpoints
+└── README.md               # This file
 ```
 Simply run AMS595_Project_Final.ipynb
