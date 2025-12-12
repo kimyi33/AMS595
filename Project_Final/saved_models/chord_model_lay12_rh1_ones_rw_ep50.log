@@ -1,0 +1,278 @@
+python train_botnet.py --devid 0 --data_dir ./data/botnet --data_name chord --batch_size 2 --enc_sizes 32 32 32 32 32 32 32 32 32 32 32 32 --act relu --residual_hop 1 --deg_norm rw --final proj --epochs 50 --lr 0.005 --early_stop 1 --save_dir ./saved_models --save_name chord_model_lay12_rh1_ones_rw_ep50.pt
+------------------------------
+Namespace(devid=0, seed=0, logmode='w', log_interval=96, data_dir='./data/botnet', data_name='chord', batch_size=2, in_memory=True, shuffle=False, in_channels=1, enc_sizes=[32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32], act='relu', layer_act='none', residual_hop=1, edge_gate='none', n_classes=2, nodemodel='additive', final='proj', nheads=[1], att_act='lrelu', att_dropout=0, att_dir='in', att_combine='cat', att_combine_out='cat', deg_norm='rw', aggr='add', dropout=0.0, bias=True, lr=0.005, weight_decay=0.0005, epochs=50, early_stop=1, save_dir='./saved_models', save_name='chord_model_lay12_rh1_ones_rw_ep50.pt')
+------------------------------
+Fri Dec 12 02:32:38 2025
+------------------------------
+loading dataset...
+model ----------
+GCNModel(
+  (gcn_net): ModuleList(
+    (0): GCNLayer(
+      (gcn): NodeModelAdditive (in_channels: 1, out_channels: 32, in_edgedim: None, deg_norm: rw, edge_gate: NoneType,aggr: add | number of parameters: 64)
+      (non_linear): Identity()
+    )
+    (1-11): 11 x GCNLayer(
+      (gcn): NodeModelAdditive (in_channels: 32, out_channels: 32, in_edgedim: None, deg_norm: rw, edge_gate: NoneType,aggr: add | number of parameters: 1056)
+      (non_linear): Identity()
+    )
+  )
+  (dropout): Dropout(p=0.0, inplace=False)
+  (residuals): ModuleList(
+    (0): Linear(in_features=1, out_features=32, bias=False)
+    (1-11): 11 x Identity()
+  )
+  (non_linear): ReLU()
+  (final): Linear(in_features=32, out_features=2, bias=True)
+)
+epoch: 1, passed number of graphs: 96, train running loss: 0.26836 (passed time: 5s)
+          acc: 0.93079, fpr: 0.00000, fnr: 1.00000, rec: 0.00000, prc: -1.00000, f1: 0.00000, auroc: 0.85968
+epoch: 1, passed number of graphs: 192, train running loss: 0.19479 (passed time: 10s)
+          acc: 0.92688, fpr: 0.00585, fnr: 0.96970, rec: 0.03030, prc: 0.27991, f1: 0.05468, auroc: 0.96563
+epoch: 1, passed number of graphs: 288, train running loss: 0.16343 (passed time: 15s)
+          acc: 0.93360, fpr: 0.00013, fnr: 0.95695, rec: 0.04305, prc: 0.95987, f1: 0.08240, auroc: 0.97616
+epoch: 1, passed number of graphs: 384, train running loss: 0.14454 (passed time: 21s)
+          acc: 0.93223, fpr: 0.00006, fnr: 0.95455, rec: 0.04545, prc: 0.98377, f1: 0.08689, auroc: 0.91165
+epoch: 1, passed number of graphs: 480, train running loss: 0.12949 (passed time: 26s)
+          acc: 0.98591, fpr: 0.00115, fnr: 0.18430, rec: 0.81570, prc: 0.98182, f1: 0.89109, auroc: 0.99309
+epoch: 1, passed number of graphs: 576, train running loss: 0.11507 (passed time: 31s)
+          acc: 0.98093, fpr: 0.00224, fnr: 0.24580, rec: 0.75420, prc: 0.96162, f1: 0.84537, auroc: 0.97882
+epoch: 1, passed number of graphs: 672, train running loss: 0.10460 (passed time: 36s)
+          acc: 0.99242, fpr: 0.00219, fnr: 0.08005, rec: 0.91995, prc: 0.96893, f1: 0.94380, auroc: 0.98592
+epoch: 1, passed number of graphs: 768, train running loss: 0.09473 (passed time: 41s)
+          acc: 0.99398, fpr: 0.00322, fnr: 0.04370, rec: 0.95630, prc: 0.95678, f1: 0.95654, auroc: 0.99452
+Validation --- epoch: 1, loss: 0.03404
+          prc: 0.95917, f1: 0.95145, fpr: 0.00301, acc: 0.99330, auroc: 0.99272, fnr: 0.05612, rec: 0.94388
+model saved at ./saved_models/chord_model_lay12_rh1_ones_rw_ep50.pt.
+epoch: 2, passed number of graphs: 96, train running loss: 0.02592 (passed time: 55s)
+          acc: 0.98895, fpr: 0.00280, fnr: 0.12200, rec: 0.87800, prc: 0.95893, f1: 0.91668, auroc: 0.98397
+epoch: 2, passed number of graphs: 192, train running loss: 0.02259 (passed time: 1m 0s)
+          acc: 0.99322, fpr: 0.00368, fnr: 0.04805, rec: 0.95195, prc: 0.95100, f1: 0.95147, auroc: 0.99341
+epoch: 2, passed number of graphs: 288, train running loss: 0.01973 (passed time: 1m 5s)
+          acc: 0.99371, fpr: 0.00520, fnr: 0.02090, rec: 0.97910, prc: 0.93337, f1: 0.95569, auroc: 0.99715
+epoch: 2, passed number of graphs: 384, train running loss: 0.01790 (passed time: 1m 10s)
+          acc: 0.99483, fpr: 0.00344, fnr: 0.02785, rec: 0.97215, prc: 0.95576, f1: 0.96388, auroc: 0.99476
+epoch: 2, passed number of graphs: 480, train running loss: 0.02098 (passed time: 1m 15s)
+          acc: 0.99680, fpr: 0.00110, fnr: 0.03080, rec: 0.96920, prc: 0.98531, f1: 0.97719, auroc: 0.99108
+epoch: 2, passed number of graphs: 576, train running loss: 0.02009 (passed time: 1m 21s)
+          acc: 0.99402, fpr: 0.00497, fnr: 0.01955, rec: 0.98045, prc: 0.93612, f1: 0.95777, auroc: 0.99765
+epoch: 2, passed number of graphs: 672, train running loss: 0.01880 (passed time: 1m 26s)
+          acc: 0.99526, fpr: 0.00350, fnr: 0.02140, rec: 0.97860, prc: 0.95413, f1: 0.96621, auroc: 0.99661
+epoch: 2, passed number of graphs: 768, train running loss: 0.01839 (passed time: 1m 31s)
+          acc: 0.99690, fpr: 0.00192, fnr: 0.01895, rec: 0.98105, prc: 0.97438, f1: 0.97770, auroc: 0.99318
+Validation --- epoch: 2, loss: 0.03286
+          prc: 0.96842, f1: 0.97635, fpr: 0.00240, acc: 0.99668, auroc: 0.99366, fnr: 0.01555, rec: 0.98445
+model saved at ./saved_models/chord_model_lay12_rh1_ones_rw_ep50.pt.
+epoch: 3, passed number of graphs: 96, train running loss: 0.01918 (passed time: 1m 44s)
+          acc: 0.99495, fpr: 0.00360, fnr: 0.02455, rec: 0.97545, prc: 0.95268, f1: 0.96393, auroc: 0.99687
+epoch: 3, passed number of graphs: 192, train running loss: 0.01492 (passed time: 1m 49s)
+          acc: 0.99492, fpr: 0.00346, fnr: 0.02670, rec: 0.97330, prc: 0.95478, f1: 0.96395, auroc: 0.99604
+epoch: 3, passed number of graphs: 288, train running loss: 0.01306 (passed time: 1m 54s)
+          acc: 0.99541, fpr: 0.00320, fnr: 0.02320, rec: 0.97680, prc: 0.95779, f1: 0.96720, auroc: 0.99572
+epoch: 3, passed number of graphs: 384, train running loss: 0.01210 (passed time: 1m 59s)
+          acc: 0.99383, fpr: 0.00510, fnr: 0.02005, rec: 0.97995, prc: 0.93614, f1: 0.95754, auroc: 0.99848
+epoch: 3, passed number of graphs: 480, train running loss: 0.01122 (passed time: 2m 4s)
+          acc: 0.99524, fpr: 0.00388, fnr: 0.01635, rec: 0.98365, prc: 0.95071, f1: 0.96690, auroc: 0.99888
+epoch: 3, passed number of graphs: 576, train running loss: 0.01085 (passed time: 2m 10s)
+          acc: 0.99691, fpr: 0.00191, fnr: 0.01895, rec: 0.98105, prc: 0.97442, f1: 0.97773, auroc: 0.99518
+epoch: 3, passed number of graphs: 672, train running loss: 0.01100 (passed time: 2m 15s)
+          acc: 0.99647, fpr: 0.00245, fnr: 0.01800, rec: 0.98200, prc: 0.96754, f1: 0.97471, auroc: 0.99662
+epoch: 3, passed number of graphs: 768, train running loss: 0.01064 (passed time: 2m 20s)
+          acc: 0.99684, fpr: 0.00170, fnr: 0.02275, rec: 0.97725, prc: 0.97720, f1: 0.97723, auroc: 0.99491
+Validation --- epoch: 3, loss: 0.02531
+          prc: 0.97382, f1: 0.97728, fpr: 0.00197, acc: 0.99683, auroc: 0.99509, fnr: 0.01921, rec: 0.98079
+model saved at ./saved_models/chord_model_lay12_rh1_ones_rw_ep50.pt.
+epoch: 4, passed number of graphs: 96, train running loss: 0.00857 (passed time: 2m 33s)
+          acc: 0.99602, fpr: 0.00297, fnr: 0.01745, rec: 0.98255, prc: 0.96088, f1: 0.97160, auroc: 0.99856
+epoch: 4, passed number of graphs: 192, train running loss: 0.00760 (passed time: 2m 38s)
+          acc: 0.99609, fpr: 0.00286, fnr: 0.01790, rec: 0.98210, prc: 0.96261, f1: 0.97226, auroc: 0.99884
+epoch: 4, passed number of graphs: 288, train running loss: 0.00827 (passed time: 2m 43s)
+          acc: 0.99581, fpr: 0.00135, fnr: 0.04230, rec: 0.95770, prc: 0.98140, f1: 0.96941, auroc: 0.99550
+epoch: 4, passed number of graphs: 384, train running loss: 0.00820 (passed time: 2m 48s)
+          acc: 0.99475, fpr: 0.00454, fnr: 0.01455, rec: 0.98545, prc: 0.94310, f1: 0.96381, auroc: 0.99929
+epoch: 4, passed number of graphs: 480, train running loss: 0.00822 (passed time: 2m 53s)
+          acc: 0.99733, fpr: 0.00108, fnr: 0.02370, rec: 0.97630, prc: 0.98571, f1: 0.98098, auroc: 0.99602
+epoch: 4, passed number of graphs: 576, train running loss: 0.01553 (passed time: 2m 59s)
+          acc: 0.99267, fpr: 0.00228, fnr: 0.07525, rec: 0.92475, prc: 0.96782, f1: 0.94579, auroc: 0.99522
+epoch: 4, passed number of graphs: 672, train running loss: 0.01508 (passed time: 3m 4s)
+          acc: 0.99508, fpr: 0.00374, fnr: 0.02080, rec: 0.97920, prc: 0.95114, f1: 0.96497, auroc: 0.99838
+epoch: 4, passed number of graphs: 768, train running loss: 0.01417 (passed time: 3m 9s)
+          acc: 0.99533, fpr: 0.00366, fnr: 0.01825, rec: 0.98175, prc: 0.95232, f1: 0.96681, auroc: 0.99873
+Validation --- epoch: 4, loss: 0.01349
+          prc: 0.93810, f1: 0.96059, fpr: 0.00486, acc: 0.99438, auroc: 0.99957, fnr: 0.01576, rec: 0.98424
+model saved at ./saved_models/chord_model_lay12_rh1_ones_rw_ep50.pt.
+epoch: 5, passed number of graphs: 96, train running loss: 0.00701 (passed time: 3m 22s)
+          acc: 0.99517, fpr: 0.00402, fnr: 0.01585, rec: 0.98415, prc: 0.94798, f1: 0.96573, auroc: 0.99904
+epoch: 5, passed number of graphs: 192, train running loss: 0.00835 (passed time: 3m 27s)
+          acc: 0.99698, fpr: 0.00074, fnr: 0.03330, rec: 0.96670, prc: 0.98986, f1: 0.97814, auroc: 0.99110
+epoch: 5, passed number of graphs: 288, train running loss: 0.00834 (passed time: 3m 32s)
+          acc: 0.99586, fpr: 0.00330, fnr: 0.01550, rec: 0.98450, prc: 0.95694, f1: 0.97052, auroc: 0.99896
+epoch: 5, passed number of graphs: 384, train running loss: 0.00759 (passed time: 3m 37s)
+          acc: 0.99597, fpr: 0.00325, fnr: 0.01415, rec: 0.98585, prc: 0.95858, f1: 0.97202, auroc: 0.99926
+epoch: 5, passed number of graphs: 480, train running loss: 0.00702 (passed time: 3m 43s)
+          acc: 0.99737, fpr: 0.00167, fnr: 0.01530, rec: 0.98470, prc: 0.97824, f1: 0.98146, auroc: 0.99911
+epoch: 5, passed number of graphs: 576, train running loss: 0.00676 (passed time: 3m 48s)
+          acc: 0.99835, fpr: 0.00074, fnr: 0.01385, rec: 0.98615, prc: 0.99001, f1: 0.98808, auroc: 0.99534
+epoch: 5, passed number of graphs: 672, train running loss: 0.00663 (passed time: 3m 53s)
+          acc: 0.99782, fpr: 0.00117, fnr: 0.01570, rec: 0.98430, prc: 0.98420, f1: 0.98425, auroc: 0.99923
+epoch: 5, passed number of graphs: 768, train running loss: 0.00634 (passed time: 3m 58s)
+          acc: 0.99794, fpr: 0.00106, fnr: 0.01550, rec: 0.98450, prc: 0.98573, f1: 0.98512, auroc: 0.99983
+Validation --- epoch: 5, loss: 0.00855
+          prc: 0.98385, f1: 0.98487, fpr: 0.00121, acc: 0.99789, auroc: 0.99973, fnr: 0.01408, rec: 0.98592
+model saved at ./saved_models/chord_model_lay12_rh1_ones_rw_ep50.pt.
+epoch: 6, passed number of graphs: 96, train running loss: 0.00477 (passed time: 4m 11s)
+          acc: 0.99825, fpr: 0.00068, fnr: 0.01620, rec: 0.98380, prc: 0.99079, f1: 0.98728, auroc: 0.99904
+epoch: 6, passed number of graphs: 192, train running loss: 0.00564 (passed time: 4m 16s)
+          acc: 0.99825, fpr: 0.00041, fnr: 0.01970, rec: 0.98030, prc: 0.99452, f1: 0.98736, auroc: 0.99294
+epoch: 6, passed number of graphs: 288, train running loss: 0.00579 (passed time: 4m 21s)
+          acc: 0.99797, fpr: 0.00076, fnr: 0.01910, rec: 0.98090, prc: 0.98976, f1: 0.98531, auroc: 0.99810
+epoch: 6, passed number of graphs: 384, train running loss: 0.00544 (passed time: 4m 26s)
+          acc: 0.99807, fpr: 0.00089, fnr: 0.01555, rec: 0.98445, prc: 0.98825, f1: 0.98635, auroc: 0.99938
+epoch: 6, passed number of graphs: 480, train running loss: 0.00516 (passed time: 4m 32s)
+          acc: 0.99838, fpr: 0.00052, fnr: 0.01610, rec: 0.98390, prc: 0.99309, f1: 0.98847, auroc: 0.99981
+epoch: 6, passed number of graphs: 576, train running loss: 0.00521 (passed time: 4m 37s)
+          acc: 0.99856, fpr: 0.00055, fnr: 0.01345, rec: 0.98655, prc: 0.99255, f1: 0.98954, auroc: 0.99955
+epoch: 6, passed number of graphs: 672, train running loss: 0.00514 (passed time: 4m 42s)
+          acc: 0.99839, fpr: 0.00064, fnr: 0.01455, rec: 0.98545, prc: 0.99130, f1: 0.98837, auroc: 0.99744
+epoch: 6, passed number of graphs: 768, train running loss: 0.00516 (passed time: 4m 47s)
+          acc: 0.99825, fpr: 0.00063, fnr: 0.01675, rec: 0.98325, prc: 0.99143, f1: 0.98732, auroc: 0.99966
+Validation --- epoch: 6, loss: 0.01225
+          prc: 0.96823, f1: 0.97728, fpr: 0.00242, acc: 0.99681, auroc: 0.99966, fnr: 0.01346, rec: 0.98654
+EarlyStopping counter: 1 out of 5
+epoch: 7, passed number of graphs: 96, train running loss: 0.00563 (passed time: 5m 0s)
+          acc: 0.99816, fpr: 0.00087, fnr: 0.01490, rec: 0.98510, prc: 0.98821, f1: 0.98665, auroc: 0.99871
+epoch: 7, passed number of graphs: 192, train running loss: 0.00479 (passed time: 5m 5s)
+          acc: 0.99831, fpr: 0.00032, fnr: 0.01985, rec: 0.98015, prc: 0.99563, f1: 0.98783, auroc: 0.99928
+epoch: 7, passed number of graphs: 288, train running loss: 0.00443 (passed time: 5m 10s)
+          acc: 0.99843, fpr: 0.00044, fnr: 0.01685, rec: 0.98315, prc: 0.99408, f1: 0.98859, auroc: 0.99881
+epoch: 7, passed number of graphs: 384, train running loss: 0.00436 (passed time: 5m 15s)
+          acc: 0.99830, fpr: 0.00057, fnr: 0.01640, rec: 0.98360, prc: 0.99243, f1: 0.98800, auroc: 0.99870
+epoch: 7, passed number of graphs: 480, train running loss: 0.00418 (passed time: 5m 21s)
+          acc: 0.99858, fpr: 0.00039, fnr: 0.01500, rec: 0.98500, prc: 0.99485, f1: 0.98990, auroc: 0.99985
+epoch: 7, passed number of graphs: 576, train running loss: 0.00405 (passed time: 5m 26s)
+          acc: 0.99879, fpr: 0.00039, fnr: 0.01225, rec: 0.98775, prc: 0.99466, f1: 0.99119, auroc: 0.99885
+epoch: 7, passed number of graphs: 672, train running loss: 0.00419 (passed time: 5m 31s)
+          acc: 0.99847, fpr: 0.00054, fnr: 0.01475, rec: 0.98525, prc: 0.99265, f1: 0.98893, auroc: 0.99779
+epoch: 7, passed number of graphs: 768, train running loss: 0.00420 (passed time: 5m 36s)
+          acc: 0.99840, fpr: 0.00062, fnr: 0.01480, rec: 0.98520, prc: 0.99160, f1: 0.98839, auroc: 0.99887
+Validation --- epoch: 7, loss: 0.00687
+          prc: 0.99336, f1: 0.98960, fpr: 0.00049, acc: 0.99856, auroc: 0.99959, fnr: 0.01412, rec: 0.98588
+model saved at ./saved_models/chord_model_lay12_rh1_ones_rw_ep50.pt.
+epoch: 8, passed number of graphs: 96, train running loss: 0.00394 (passed time: 5m 49s)
+          acc: 0.99854, fpr: 0.00024, fnr: 0.01785, rec: 0.98215, prc: 0.99675, f1: 0.98940, auroc: 0.99966
+epoch: 8, passed number of graphs: 192, train running loss: 0.00360 (passed time: 5m 54s)
+          acc: 0.99862, fpr: 0.00019, fnr: 0.01730, rec: 0.98270, prc: 0.99746, f1: 0.99003, auroc: 0.99934
+epoch: 8, passed number of graphs: 288, train running loss: 0.00357 (passed time: 5m 59s)
+          acc: 0.99862, fpr: 0.00039, fnr: 0.01460, rec: 0.98540, prc: 0.99465, f1: 0.99000, auroc: 0.99941
+epoch: 8, passed number of graphs: 384, train running loss: 0.00353 (passed time: 6m 5s)
+          acc: 0.99845, fpr: 0.00042, fnr: 0.01635, rec: 0.98365, prc: 0.99449, f1: 0.98904, auroc: 0.99687
+epoch: 8, passed number of graphs: 480, train running loss: 0.00377 (passed time: 6m 10s)
+          acc: 0.99851, fpr: 0.00027, fnr: 0.01745, rec: 0.98255, prc: 0.99635, f1: 0.98940, auroc: 0.99965
+epoch: 8, passed number of graphs: 576, train running loss: 0.00367 (passed time: 6m 15s)
+          acc: 0.99885, fpr: 0.00025, fnr: 0.01340, rec: 0.98660, prc: 0.99667, f1: 0.99161, auroc: 0.99945
+epoch: 8, passed number of graphs: 672, train running loss: 0.00358 (passed time: 6m 20s)
+          acc: 0.99873, fpr: 0.00030, fnr: 0.01435, rec: 0.98565, prc: 0.99591, f1: 0.99075, auroc: 0.99973
+epoch: 8, passed number of graphs: 768, train running loss: 0.00351 (passed time: 6m 25s)
+          acc: 0.99866, fpr: 0.00038, fnr: 0.01425, rec: 0.98575, prc: 0.99485, f1: 0.99028, auroc: 0.99991
+Validation --- epoch: 8, loss: 0.00668
+          prc: 0.98972, f1: 0.98867, fpr: 0.00077, acc: 0.99842, auroc: 0.99982, fnr: 0.01237, rec: 0.98763
+model saved at ./saved_models/chord_model_lay12_rh1_ones_rw_ep50.pt.
+epoch: 9, passed number of graphs: 96, train running loss: 0.00400 (passed time: 6m 38s)
+          acc: 0.99865, fpr: 0.00021, fnr: 0.01660, rec: 0.98340, prc: 0.99711, f1: 0.99021, auroc: 0.99967
+epoch: 9, passed number of graphs: 192, train running loss: 0.00362 (passed time: 6m 43s)
+          acc: 0.99871, fpr: 0.00015, fnr: 0.01645, rec: 0.98355, prc: 0.99792, f1: 0.99068, auroc: 0.99877
+epoch: 9, passed number of graphs: 288, train running loss: 0.00389 (passed time: 6m 48s)
+          acc: 0.99822, fpr: 0.00030, fnr: 0.02165, rec: 0.97835, prc: 0.99593, f1: 0.98706, auroc: 0.99890
+epoch: 9, passed number of graphs: 384, train running loss: 0.00370 (passed time: 6m 54s)
+          acc: 0.99849, fpr: 0.00047, fnr: 0.01515, rec: 0.98485, prc: 0.99384, f1: 0.98933, auroc: 0.99978
+epoch: 9, passed number of graphs: 480, train running loss: 0.00349 (passed time: 6m 59s)
+          acc: 0.99878, fpr: 0.00016, fnr: 0.01520, rec: 0.98480, prc: 0.99787, f1: 0.99129, auroc: 0.99986
+epoch: 9, passed number of graphs: 576, train running loss: 0.00339 (passed time: 7m 4s)
+          acc: 0.99876, fpr: 0.00031, fnr: 0.01375, rec: 0.98625, prc: 0.99581, f1: 0.99101, auroc: 0.99992
+epoch: 9, passed number of graphs: 672, train running loss: 0.00337 (passed time: 7m 9s)
+          acc: 0.99862, fpr: 0.00048, fnr: 0.01345, rec: 0.98655, prc: 0.99350, f1: 0.99002, auroc: 0.99936
+epoch: 9, passed number of graphs: 768, train running loss: 0.03488 (passed time: 7m 14s)
+          acc: 0.93069, fpr: 0.00000, fnr: 1.00000, rec: 0.00000, prc: -1.00000, f1: 0.00000, auroc: 0.97164
+Validation --- epoch: 9, loss: 0.13452
+          prc: -0.90278, f1: 0.00001, fpr: 0.00000, acc: 0.93043, auroc: 0.97228, fnr: 1.00000, rec: 0.00000
+EarlyStopping counter: 1 out of 5
+epoch: 10, passed number of graphs: 96, train running loss: 0.05066 (passed time: 7m 27s)
+          acc: 0.98936, fpr: 0.00112, fnr: 0.13870, rec: 0.86130, prc: 0.98288, f1: 0.91808, auroc: 0.99462
+epoch: 10, passed number of graphs: 192, train running loss: 0.03643 (passed time: 7m 32s)
+          acc: 0.99352, fpr: 0.00282, fnr: 0.05525, rec: 0.94475, prc: 0.96177, f1: 0.95319, auroc: 0.99367
+epoch: 10, passed number of graphs: 288, train running loss: 0.03355 (passed time: 7m 38s)
+          acc: 0.99401, fpr: 0.00268, fnr: 0.05060, rec: 0.94940, prc: 0.96352, f1: 0.95641, auroc: 0.99559
+epoch: 10, passed number of graphs: 384, train running loss: 0.02817 (passed time: 7m 43s)
+          acc: 0.99577, fpr: 0.00169, fnr: 0.03750, rec: 0.96250, prc: 0.97750, f1: 0.96994, auroc: 0.99775
+epoch: 10, passed number of graphs: 480, train running loss: 0.02429 (passed time: 7m 48s)
+          acc: 0.99710, fpr: 0.00107, fnr: 0.02700, rec: 0.97300, prc: 0.98577, f1: 0.97934, auroc: 0.99819
+epoch: 10, passed number of graphs: 576, train running loss: 0.02154 (passed time: 7m 53s)
+          acc: 0.99756, fpr: 0.00066, fnr: 0.02645, rec: 0.97355, prc: 0.99099, f1: 0.98219, auroc: 0.99842
+epoch: 10, passed number of graphs: 672, train running loss: 0.01947 (passed time: 7m 58s)
+          acc: 0.99763, fpr: 0.00072, fnr: 0.02450, rec: 0.97550, prc: 0.99010, f1: 0.98275, auroc: 0.99869
+epoch: 10, passed number of graphs: 768, train running loss: 0.01783 (passed time: 8m 4s)
+          acc: 0.99787, fpr: 0.00058, fnr: 0.02290, rec: 0.97710, prc: 0.99208, f1: 0.98453, auroc: 0.99907
+Validation --- epoch: 10, loss: 0.01206
+          prc: 0.99178, f1: 0.98408, fpr: 0.00061, acc: 0.99780, auroc: 0.99890, fnr: 0.02348, rec: 0.97652
+EarlyStopping counter: 2 out of 5
+epoch: 11, passed number of graphs: 96, train running loss: 0.00626 (passed time: 8m 17s)
+          acc: 0.99779, fpr: 0.00064, fnr: 0.02330, rec: 0.97670, prc: 0.99127, f1: 0.98393, auroc: 0.99938
+epoch: 11, passed number of graphs: 192, train running loss: 0.00614 (passed time: 8m 22s)
+          acc: 0.99783, fpr: 0.00041, fnr: 0.02560, rec: 0.97440, prc: 0.99439, f1: 0.98429, auroc: 0.99841
+epoch: 11, passed number of graphs: 288, train running loss: 0.00609 (passed time: 8m 27s)
+          acc: 0.99785, fpr: 0.00063, fnr: 0.02255, rec: 0.97745, prc: 0.99138, f1: 0.98437, auroc: 0.99904
+epoch: 11, passed number of graphs: 384, train running loss: 0.00603 (passed time: 8m 32s)
+          acc: 0.99778, fpr: 0.00067, fnr: 0.02245, rec: 0.97755, prc: 0.99108, f1: 0.98427, auroc: 0.99919
+epoch: 11, passed number of graphs: 480, train running loss: 0.00597 (passed time: 8m 37s)
+          acc: 0.99790, fpr: 0.00060, fnr: 0.02190, rec: 0.97810, prc: 0.99204, f1: 0.98502, auroc: 0.99910
+epoch: 11, passed number of graphs: 576, train running loss: 0.00594 (passed time: 8m 43s)
+          acc: 0.99814, fpr: 0.00060, fnr: 0.01885, rec: 0.98115, prc: 0.99186, f1: 0.98648, auroc: 0.99927
+epoch: 11, passed number of graphs: 672, train running loss: 0.00591 (passed time: 8m 48s)
+          acc: 0.99777, fpr: 0.00062, fnr: 0.02395, rec: 0.97605, prc: 0.99157, f1: 0.98375, auroc: 0.99904
+epoch: 11, passed number of graphs: 768, train running loss: 0.00586 (passed time: 8m 53s)
+          acc: 0.99792, fpr: 0.00060, fnr: 0.02190, rec: 0.97810, prc: 0.99179, f1: 0.98490, auroc: 0.99923
+Validation --- epoch: 11, loss: 0.01082
+          prc: 0.99231, f1: 0.98505, fpr: 0.00057, acc: 0.99794, auroc: 0.99916, fnr: 0.02209, rec: 0.97791
+EarlyStopping counter: 3 out of 5
+epoch: 12, passed number of graphs: 96, train running loss: 0.00567 (passed time: 9m 6s)
+          acc: 0.99797, fpr: 0.00065, fnr: 0.02060, rec: 0.97940, prc: 0.99109, f1: 0.98521, auroc: 0.99944
+epoch: 12, passed number of graphs: 192, train running loss: 0.00558 (passed time: 9m 11s)
+          acc: 0.99797, fpr: 0.00040, fnr: 0.02370, rec: 0.97630, prc: 0.99455, f1: 0.98534, auroc: 0.99868
+epoch: 12, passed number of graphs: 288, train running loss: 0.00554 (passed time: 9m 16s)
+          acc: 0.99796, fpr: 0.00060, fnr: 0.02135, rec: 0.97865, prc: 0.99184, f1: 0.98520, auroc: 0.99924
+epoch: 12, passed number of graphs: 384, train running loss: 0.00549 (passed time: 9m 22s)
+          acc: 0.99790, fpr: 0.00065, fnr: 0.02105, rec: 0.97895, prc: 0.99139, f1: 0.98513, auroc: 0.99925
+epoch: 12, passed number of graphs: 480, train running loss: 0.00543 (passed time: 9m 27s)
+          acc: 0.99801, fpr: 0.00057, fnr: 0.02060, rec: 0.97940, prc: 0.99235, f1: 0.98583, auroc: 0.99930
+epoch: 12, passed number of graphs: 576, train running loss: 0.00541 (passed time: 9m 32s)
+          acc: 0.99828, fpr: 0.00046, fnr: 0.01865, rec: 0.98135, prc: 0.99372, f1: 0.98750, auroc: 0.99936
+epoch: 12, passed number of graphs: 672, train running loss: 0.00539 (passed time: 9m 37s)
+          acc: 0.99787, fpr: 0.00057, fnr: 0.02320, rec: 0.97680, prc: 0.99223, f1: 0.98445, auroc: 0.99922
+epoch: 12, passed number of graphs: 768, train running loss: 0.00535 (passed time: 9m 42s)
+          acc: 0.99808, fpr: 0.00054, fnr: 0.02045, rec: 0.97955, prc: 0.99260, f1: 0.98603, auroc: 0.99930
+Validation --- epoch: 12, loss: 0.00993
+          prc: 0.99288, f1: 0.98581, fpr: 0.00053, acc: 0.99804, auroc: 0.99924, fnr: 0.02115, rec: 0.97885
+EarlyStopping counter: 4 out of 5
+epoch: 13, passed number of graphs: 96, train running loss: 0.00518 (passed time: 9m 55s)
+          acc: 0.99804, fpr: 0.00057, fnr: 0.02060, rec: 0.97940, prc: 0.99225, f1: 0.98578, auroc: 0.99950
+epoch: 13, passed number of graphs: 192, train running loss: 0.00512 (passed time: 10m 0s)
+          acc: 0.99802, fpr: 0.00040, fnr: 0.02295, rec: 0.97705, prc: 0.99455, f1: 0.98572, auroc: 0.99908
+epoch: 13, passed number of graphs: 288, train running loss: 0.00510 (passed time: 10m 6s)
+          acc: 0.99803, fpr: 0.00058, fnr: 0.02060, rec: 0.97940, prc: 0.99210, f1: 0.98571, auroc: 0.99934
+epoch: 13, passed number of graphs: 384, train running loss: 0.00508 (passed time: 10m 11s)
+          acc: 0.99795, fpr: 0.00065, fnr: 0.02045, rec: 0.97955, prc: 0.99140, f1: 0.98544, auroc: 0.99935
+epoch: 13, passed number of graphs: 480, train running loss: 0.00504 (passed time: 10m 16s)
+          acc: 0.99806, fpr: 0.00050, fnr: 0.02080, rec: 0.97920, prc: 0.99330, f1: 0.98620, auroc: 0.99933
+epoch: 13, passed number of graphs: 576, train running loss: 0.00505 (passed time: 10m 21s)
+          acc: 0.99831, fpr: 0.00043, fnr: 0.01860, rec: 0.98140, prc: 0.99412, f1: 0.98772, auroc: 0.99940
+epoch: 13, passed number of graphs: 672, train running loss: 0.00505 (passed time: 10m 26s)
+          acc: 0.99798, fpr: 0.00061, fnr: 0.02095, rec: 0.97905, prc: 0.99164, f1: 0.98531, auroc: 0.99914
+epoch: 13, passed number of graphs: 768, train running loss: 0.00503 (passed time: 10m 31s)
+          acc: 0.99811, fpr: 0.00051, fnr: 0.02045, rec: 0.97955, prc: 0.99306, f1: 0.98626, auroc: 0.99930
+Validation --- epoch: 13, loss: 0.00969
+          prc: 0.99287, f1: 0.98617, fpr: 0.00053, acc: 0.99809, auroc: 0.99929, fnr: 0.02044, rec: 0.97956
+EarlyStopping counter: 5 out of 5
+Early stopping here.
+************ best model obtained after epoch 8, saved at ./saved_models/chord_model_lay12_rh1_ones_rw_ep50.pt ************
+Testing --- loss: 0.00671
+          prc: 0.98974, f1: 0.98858, fpr: 0.00076, acc: 0.99842, auroc: 0.99982, fnr: 0.01257, rec: 0.98743
